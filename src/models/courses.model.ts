@@ -1,4 +1,4 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
 import {Lessons} from './lessons.model';
 
 @model({settings: {strict: false}})
@@ -12,7 +12,6 @@ export class Courses extends Entity {
 
   @property({
     type: 'string',
-    required: true,
   })
   name: string;
 
@@ -23,7 +22,6 @@ export class Courses extends Entity {
 
   @property({
     type: 'string',
-    required: true,
   })
   slug: string;
 

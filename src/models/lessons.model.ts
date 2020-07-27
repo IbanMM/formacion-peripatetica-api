@@ -1,4 +1,4 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Courses} from './courses.model';
 
 @model({settings: {strict: false}})
@@ -12,7 +12,6 @@ export class Lessons extends Entity {
 
   @property({
     type: 'string',
-    required: true,
   })
   name: string;
 
@@ -33,7 +32,6 @@ export class Lessons extends Entity {
 
   @property({
     type: 'string',
-    required: true,
   })
   slug: string;
 
