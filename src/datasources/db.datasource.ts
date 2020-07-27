@@ -7,8 +7,8 @@ const config = {
   url: '',
   host: '127.0.0.1',
   port: 0,
-  user: '',
-  password: '',
+  user: 'formacionperipateticaids',
+  password: '125q789123',
   database: 'formacionperipateticaids',
   useNewUrlParser: true
 };
