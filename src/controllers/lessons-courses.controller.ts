@@ -1,22 +1,19 @@
+import {authenticate} from '@loopback/authentication';
+import {repository} from '@loopback/repository';
 import {
-  repository,
-} from '@loopback/repository';
-import {
-  param,
   get,
-  getModelSchemaRef,
+  getModelSchemaRef, param
 } from '@loopback/rest';
-import {
-  Lessons,
-  Courses,
-} from '../models';
+import {Courses, Lessons} from '../models';
 import {LessonsRepository} from '../repositories';
+
+@authenticate('jwt')
 
 export class LessonsCoursesController {
   constructor(
     @repository(LessonsRepository)
     public lessonsRepository: LessonsRepository,
-  ) { }
+  ) {}
 
   @get('/lessons/{id}/courses', {
     responses: {
