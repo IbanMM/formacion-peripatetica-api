@@ -1,3 +1,4 @@
+import fs from 'fs';
 import {ApplicationConfig, FormacionPeripateticaApiidsApplication} from './application';
 
 export * from './application';
@@ -18,8 +19,12 @@ if (require.main === module) {
   // Run the application
   const config = {
     rest: {
+      protocol: 'https',
       port: +(process.env.PORT ?? 3000),
       host: process.env.HOST,
+      cert: fs.readFileSync('/etc/letsencrypt/live/api.formacion.veiss.info/cert.pem'),
+      key: fs.readFileSync('/etc/letsencrypt/live/api.formacion.veiss.info/privkey.pem'),
+      // The `gracePeriodForClose` provides a graceful close for http/https
       // The `gracePeriodForClose` provides a graceful close for http/https
       // servers with keep-alive clients. The default value is `Infinity`
       // (don't force-close). If you want to immediately destroy all sockets
