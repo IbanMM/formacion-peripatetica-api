@@ -1,28 +1,35 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
+  del, get,
+  getModelSchemaRef, param,
+
+
+  patch, post,
+
+
+
+
   put,
-  del,
-  requestBody,
+
+  requestBody
 } from '@loopback/rest';
 import {Lessons} from '../models';
 import {LessonsRepository} from '../repositories';
 
+@authenticate('jwt')
+
 export class LessonsController {
   constructor(
     @repository(LessonsRepository)
-    public lessonsRepository : LessonsRepository,
+    public lessonsRepository: LessonsRepository,
   ) {}
 
   @post('/lessons', {
